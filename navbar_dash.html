@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+   
+    <title>{% block title %} {% endblock %}</title>
+    <title>{% block label %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'style.css')}}">
+</head>
+
+<body>
+    <div id="content">
+
+      <div class="home">
+        <!--Navigation Bar-->
+
+           <nav class="navbar navbar-expand-lg navbar-dark " class="top-bar fixed" style = "background-color:#652DC1;">
+               <!--Logo -->
+               <div class="container">
+                   <a class="navbar-brand" href="#">
+                    
+                       EEG-CWL
+                   </a>
+
+                   <button class="navbar-toggler" type="btn btn-dark" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!--Tabs -->
+                   
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+ 
+                        <ul class="navbar nav ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
+                                </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('editprofile')}}">Edit Profile</a>
+                            </li>
+                            <li class="nav-item">
+                            <button class="btn btn-light"><a style='color: black;' href="{{url_for('home')}}">Logout</a></button>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                    
+                </div>
+            </nav>
+    </div>
+</div>
+  
+	{% block content %}
+		
+	{% endblock %}
+       
+
+
+</body>
+</html>

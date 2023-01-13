@@ -1,0 +1,87 @@
+{% extends "navbar_dash.html" %}
+{% block title %}User Page{% endblock%}
+{% block content %}
+<div class="container">
+     		<div class="row">
+            <!-- file upload start -->
+            <div class="col">
+            <h2> Upload EEG file here</h2>
+            <div class="container"> 
+                
+                <div class="col-md-10">
+                    <form name='form' method="post" action="{{ url_for('upload_file')}}" enctype = "multipart/form-data">
+                        <input type="file" name="file">
+                        <br>
+                        <label style = "margin: 10px"><b>Select the type of task</b></label><br>
+                        <input style = "margin: 10px" type ="radio" name = "task_type" value = "simkap">Multitask
+                        <br>
+                        <input style = "margin: 10px" type ="radio" name = "task_type" value = "notask">No Task
+                        <br>
+                        <!-- <label style = "margin: 10px"><b>Select the type of model</b></label><br>
+                        <input style = "margin: 10px" type = "radio" name = "model_type" value = "cnn">CNN<br>
+                        <input style = "margin: 10px" type = "radio" name = "model_type" value = "gru">GRU<br>
+                        <input style = "margin: 10px" type = "radio" name = "model_type" value = "cnngru">CNN-GRU<br> -->
+                        <input style = "margin: 10px" type="submit" value="submit" class = "btn btn-sm btn-success">
+                    </form>
+                    
+                </div>
+                
+            
+            </div>
+            <!-- file upload end -->
+        </div>
+        
+        <div class="col">
+            <h2>Results</h2>
+            <div class="row col-md-20">
+                
+                <p style="text-align: center; margin-top: 20px; ">
+               
+                   
+                        <div class="container">
+                            <h1 style = "color: blueviolet;">
+                            {% print(label) %}
+                            </h1>
+                        </div>
+                </p>
+                </div> 
+            <!-- cwl output end -->
+        </div>
+    </div>
+        
+
+    
+
+    
+    <style>
+    	
+        .output {
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        .output.low {
+            color: #000000;
+        }
+
+        .output.medium {
+            color: #000000;
+        }
+
+        .output.high {
+            color: #000000;
+        }
+
+    </style>
+
+    <script>function uploadFile(){
+        alert('File is being uploaded');
+        
+    }
+    
+    function getResult(){
+        alert('Results are being calculated');
+    }</script>
+
+    
+
+{% endblock %}
